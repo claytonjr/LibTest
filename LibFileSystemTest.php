@@ -16,18 +16,6 @@ $html->PrintLine('LibFileSystemTest - Unit test for LibFileSystem.', 'p');
 $HelloWorldFile = 'C:/HelloWorld.txt';
 $HelloWorldMessage = 'Blah blah blah!';
 
-// if(!$fs->FileExists($HelloWorldFile)) {
-// 	$fs->WriteDataToFile($HelloWorldFile, $HelloWorldMessage);
-// }
-
-// if($fs->FileExists($HelloWorldFile)) {
-// 	$NewHelloWorldFile = $fs->ReadFileIntoString($HelloWorldFile);
-// 	$html->PrintLine($NewHelloWorldFile, 'p');
-// 	$html->PrintLine('File was successfully written, and read!', 'p');
-// } else {
-// 	$html->PrintLine('File was not successfully written and/or read!', 'p');
-// }
-
 if($fs->FileExists($HelloWorldFile)) {
 	$html->PrintLine('The file does exist: ' . $HelloWorldFile, 'p');
 } elseif(!$fs->FileExists($HelloWorldFile)) {

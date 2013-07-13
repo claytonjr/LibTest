@@ -13,4 +13,8 @@ include_once('../LibEasyPHP/LibConfig.php');
 
 $html->PrintLine('LibCryptoTest - Unit test for LibCrypto.', 'p');
 
+$html->PrintLine('Listing of available algorithms: ' . $cr->ShowAlgorithms());
+
+print_r($cr->ShowAlgorithms());
+
 ?>
