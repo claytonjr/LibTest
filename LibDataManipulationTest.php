@@ -11,49 +11,57 @@
 
 include_once('../LibEasyPHP/LibConfig.php');
 
-class DataManipulationTest extends DataManipulation {
-
-}
-
 $html->PrintLine('LibDataManipulationTest - Unit test for LibDataManipulation.', 'p');
 
 $EmptyString = '';
 $NullVar = Null;
 $HelloWorld = 'Hello, world!';
 
-// if($dm->IsEmpty($EmptyString)) {
-// 	$html->PrintLine('$EmptyString is empty!', 'p');
-// } else {
-// 	$html->PrintLine('$EmptyString is not empty!', 'p');
-// }
+$Algos = $cr->ShowAlgorithms();
+$html->PrintLine($Algos);
 
-// if($dm->IsEmpty($NullVar)) {
-// 	$html->PrintLine('$NullVar is empty!', 'p');
-// } else {
-// 	$html->PrintLine('$NullVar is not empty!', 'p');
-// }
+$Family = array (
+	'James Clayton' => 'Father',
+	'Courtney Clayton' => 'Mother', 
+	'Jackson Clayton' => 'Child',
+	'Max Schoenfeld' => 'Child',
+	'Annie Sly' => 'Child'
+);
 
-// class Testing extends DataManipulation {
-	//$dm = new DataManipulation();
-	//$IsEmpty = $dm->IsEmpty();
-	function TestEmpty($TestVar, $VarName) {
-		//include_once('../LibEasyPHP/LibConfig.php');
+$Family1 = $Family;
+$Family2 = $Family;
 
-		if($dm->IsEmpty($TestVar)) {
-			$html->PrintLine('This var is empty: ' . $VarName, 'p');
-		} else {
-			$html->PrintLine('This var is not empty: ' . $VarName, 'p');
-		}
-	} 
-// }
+// $SortedAlgos = $dm->SortArray($Family, 'Key', 'Ascending');
+// $SortedFamily = ksort($Family);
+// $html->PrintLine($Family, 'br');
 
-// $test = new Testing();
-// $test->TestEmpty($EmptyString, '$EmptyString');
-// $test->TestEmpty($NullVar, '$NullVar');
-// $test->TestEmpty($HelloWorld, '$HelloWorld');
+// $html->PrintLine($Family);
+// $html->PrintLine($dm->SortArray($Family, 'Key', 'Ascending'));
+// $html->PrintLine($dm->SortArray($Family, 'Key', 'Descending'));
+// $html->PrintLine($dm->SortArray($Family, 'Value', 'Ascending'));
+// $html->PrintLine($dm->SortArray($Family, 'Value', 'Descending'));
 
-TestEmpty($EmptyString, 'EmptyString');
-TestEmpty($NullVar, 'NullVar');
-TestEmpty($HelloWorld, 'HelloWorld');
+// $dm->SortArrayByKey($Family, 'Ascending');
+// $html->PrintLine('Family is SortArrayByKey, Ascending');
+// $html->PrintLine($Family);
+
+// $dm->SortArrayByKey($Family1, 'Descending');
+// $html->PrintLine('Family1 is SortArrayByKey, Descending');
+// $html->PrintLine($Family1)
+
+// $html->PrintLine((string) $dm->SortArrayByKey($Family, 'Ascending'), 'p');
+
+$dm->SortArrayByKey($Family, 'Descending');
+
+var_dump($dm->SortArrayByKey($Family, 'Ascending'));	
+
+if(is_array($Family)) {
+	$html->PrintLine('Family is an array!', 'p');
+	$html->PrintLine($Family);
+	var_dump($Family);
+} else {
+	$html->PrintLine('Family is not an array!', 'p');
+	var_dump($Family);
+}
 
 ?>
