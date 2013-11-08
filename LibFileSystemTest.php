@@ -14,7 +14,7 @@ include_once('../LibEasyPHP/LibConfig.php');
 $html->PrintLine('LibFileSystemTest - Unit test for LibFileSystem.', 'p');
 
 $HelloWorldFile = 'C:/HelloWorld.txt';
-$HelloWorldMessage = 'Blah blah blah!';
+$HelloWorldMessage = ('This file was written on: ' . $date->Today('Long'));
 
 if($fs->FileExists($HelloWorldFile)) {
 	$html->PrintLine('The file does exist: ' . $HelloWorldFile, 'p');
@@ -34,5 +34,15 @@ if($fs->FileExists($HelloWorldFile)) {
 	$ReadFile = $fs->ReadFileIntoString($HelloWorldFile);
 	$html->PrintLine('Attempting to read file: ' . $ReadFile, 'p');
 }
+
+$html->PrintLine('Word count: ' . $str->WordCount($ReadFile), 'p');
+
+$html->PrintLine('Character count: ' . $str->CharacterCount($ReadFile), 'p');
+
+$html->PrintLine('Rot13: ' . $str->Rot13($ReadFile), 'p');
+
+$html->PrintLine('String shuffle: ' . $str->Shuffle($ReadFile), 'p');
+
+$html->PrintLine('String replace: ' . $str->Replace(array('file', 'written'), array('butt', 'farted'), $ReadFile), 'p');
 
 ?>
